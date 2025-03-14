@@ -10,6 +10,6 @@ public class AutenticarController {
 	@GetMapping
 	public ModelAndView autenticar() {
 		ModelAndView modelAndView = new ModelAndView("autenticar");
-		return modelAndView;
+		return modelAndView; 
 	}
 }
