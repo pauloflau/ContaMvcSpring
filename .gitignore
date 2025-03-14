@@ -1,0 +1,24 @@
+### Diretórios e arquivos do Maven ###
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### Arquivos do sistema operacional ###
+.DS_Store
+Thumbs.db
+
+### Arquivos do Thymeleaf gerados ###
+*.class
+*.log
+*.tmp
+
+### Logs ###
+logs/
+*.log
+
+### Arquivos de dependencias baixadas pelo maven ###
+/.m2/
+
+### Outros ###
+.vscode/
+*.swp
+*.swo
