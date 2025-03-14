@@ -51,7 +51,6 @@ ContasMVC/
 │   │   │   ├── controller/
 │   │   │   ├── model/
 │   │   │   ├── repository/
-│   │   │   ├── service/
 │   │   ├── resources/
 │   │   │   ├── templates/ (arquivos Thymeleaf)
 │   │   │   ├── static/ (CSS, JS, Imagens)
