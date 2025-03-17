@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+label.error {
+	color: red;
+}
+
+input.error {
+	border: 2px solid red;
+}
+
+/* Estilo para a mensagem de erro */
+.erro {
+	color: red;
+	font-weight: bold;
+}
+
+/* Estilo para a mensagem de sucesso */
+.sucesso {
+	color: blue;
+	font-weight: bold;
+}

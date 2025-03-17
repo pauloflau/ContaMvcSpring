@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jmp.entities.Usuario;
+import com.jmp.helpers.Sha1CryptoHelper;
 import com.jmp.repositories.UsuarioRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("/ContasMvc")
+@RequestMapping("/contas")
 public class CriarUsuarioController {
 	
 	@Autowired
@@ -35,8 +36,11 @@ public class CriarUsuarioController {
 			
 			usuario.setNome(request.getParameter("nome"));
 			usuario.setEmail(request.getParameter("email"));
-			usuario.setSenha(request.getParameter("senha"));
+			usuario.setSenha(Sha1CryptoHelper.getSha1Encrypt(request.getParameter("senha")));
 			
+			if(usuarioRepository.findByEmail(usuario.getEmail()) != null) {
+				throw new Exception("O email informado ja esta cadastrado.  Tente outro.");
+			}
 			usuarioRepository.save(usuario);
 			
 			modelAndView.addObject("mensagem", "Conta criada com sucesso");

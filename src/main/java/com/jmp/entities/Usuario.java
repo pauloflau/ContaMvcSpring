@@ -23,7 +23,7 @@ public class Usuario {
     @Column(nullable = false, unique = true, length = 150) // Adiciona a restrição de unicidade
 	private String email;
 	
-	@Column(nullable = false, length = 5)
+	@Column(nullable = false)
 	private String senha;
 
 	public Usuario() {

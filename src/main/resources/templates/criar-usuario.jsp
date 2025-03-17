@@ -5,25 +5,12 @@
 <title>Sistema Contas - Criar usuario</title>
 
 <!-- Folha de estilos CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"	rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
 
 <!-- CSS pintar as mensagens de erro e criar uma borda no campo onde tem um erro -->
-<style>
-    label.error { color: red; }
-    input.error { border: 2px solid red; }
+<link th:href="@{/css/style.css}" rel="stylesheet" />
 
-    /* Estilo para a mensagem de erro */
-    .erro {
-        color: red;
-        font-weight: bold;
-    }
-
-    /* Estilo para a mensagem de sucesso */
-    .sucesso {
-        color: blue;
-        font-weight: bold;
-    }
-</style>
 
 </head>
 <body class="bg-secondary">
@@ -72,7 +59,7 @@
 						</div>
 
 						<div class="mb-2 d-grid">
-							<a href="/ContasMvc" class="btn btn-light">Voltar para a pagina inicial.</a>
+							<a href="/contas" class="btn btn-light">Voltar para a pagina inicial.</a>
 							</div>
 
 					</form>
