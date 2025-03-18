@@ -5,15 +5,17 @@
 <title>Sistema Contas - DASHBOARD</title>
 
 <!-- Folha de estilos CSS -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 <link th:href="@{/css/style.css}" rel="stylesheet" />
 
 </head>
 <body>
 
+<!-- chama no formato thymeleaf a pagina menu.jsp -->
+  <div th:replace="admin/components/menu :: menu"></div>
+
+	
 	<div class="container mt-3">
 		<h4>Dashboard principal</h4>
 		<p>Seja bem vindo ao sistema.</p>
@@ -21,7 +23,6 @@
 
 	<!-- Bootstrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"> </script>
-
 
 </body>
 </html>

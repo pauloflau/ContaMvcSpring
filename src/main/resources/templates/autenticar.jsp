@@ -90,7 +90,8 @@ $(document).ready(function(){
 				maxlength: 20
 			}
 		}
-	});			
+	});		
+	
 });
 </script>
 </body>
