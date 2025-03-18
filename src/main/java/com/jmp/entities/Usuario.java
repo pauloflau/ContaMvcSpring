@@ -1,5 +1,6 @@
 package com.jmp.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -7,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,6 +27,9 @@ public class Usuario {
 	
 	@Column(nullable = false)
 	private String senha;
+	
+	@OneToMany(mappedBy = "usuario")
+    private List<Conta> contas;
 
 	public Usuario() {
 		// TODO Auto-generated constructor stub
@@ -36,6 +41,16 @@ public class Usuario {
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+	}
+
+	
+	public Usuario(Integer id, String nome, String email, String senha, List<Conta> contas) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.contas = contas;
 	}
 
 	public Integer getId() {
@@ -68,6 +83,16 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	
+
+	public List<Conta> getContas() {
+		return contas;
+	}
+
+	public void setContas(List<Conta> contas) {
+		this.contas = contas;
 	}
 
 	@Override

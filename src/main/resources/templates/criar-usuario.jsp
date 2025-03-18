@@ -27,7 +27,6 @@
 					<h5 th:if="${mensagem != null}" 
 						th:text="${mensagem}" th:class="${mensagemTipo == 'erro' ? 'erro' : 'sucesso'}"></h5>
 
-
 					<form action="criar-usuario-post" method="post" id="formCadastro" class="text-start">
 
 						<div class="mb-2">

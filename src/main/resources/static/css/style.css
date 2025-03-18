@@ -1,10 +1,18 @@
 @charset "UTF-8";
 
-label.error {
+label.error {   /*pinta um label*/
 	color: red;
 }
 
-input.error {
+input.error {  /*pinta um input*/
+	border: 2px solid red;
+}
+
+select.error {  /*pinta um select*/
+	border: 2px solid red;
+}
+
+textarea.error {  /*pinta um textarea*/
 	border: 2px solid red;
 }
 

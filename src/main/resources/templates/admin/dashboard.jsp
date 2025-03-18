@@ -14,7 +14,6 @@
 
 <!-- chama no formato thymeleaf a pagina menu.jsp -->
   <div th:replace="admin/components/menu :: menu"></div>
-
 	
 	<div class="container mt-3">
 		<h4>Dashboard principal</h4>
