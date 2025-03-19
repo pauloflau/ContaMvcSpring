@@ -29,10 +29,12 @@
 	<form id="formConsulta" action="consulta-contas-post" method="post" class="mt-2 mb-2">
 		<div class="row">
 			<div class="col-md-2">
-				<label>Data de inicio:</label> <input type="date" id="dataMin" name="dataMin" class="form-control" />
+				<label>Data de inicio:</label> 
+				<input type="date" id="dataMin" name="dataMin" th:value="${dataMin}" class="form-control" />
 			</div>
 			<div class="col-md-2">
-				<label>Data de fim:</label> <input type="date" id="dataMax" name="dataMax" class="form-control" />
+				<label>Data de fim:</label> 
+				<input type="date" id="dataMax" name="dataMax" th:value="${dataMax}" class="form-control" />
 			</div>
 			<div class="col-md-8">
 				<input type="submit" class="btn btn-success mt-4" value="Pesquisar contas" />
@@ -40,38 +42,53 @@
 		</div>
 	</form>
 
-	<div class="table-responsive mt-3">
-		<table class="table table-sm">
-			<thead>
-				<tr>
-					<th>Data</th>
-					<th>Valor</th>
-					<th>Tipo</th>
-					<th>Nome</th>
-					<th>Descricao</th>
-					<th>Operacoes</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td>
-						<a href="/contas/admin/edicao-contas" class="btn btn-outline-primary btn-sm me-2">Editar</a> 
-						<a href="/contas/admin/exclusao-contas" class="btn btn-outline-danger btn-sm">Excluir</a>
-					</td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="6">Quantidade de registros: 0</td>
-				</tr>
-			</tfoot>
-		</table>
-	</div>
+	<div th:if="${contas != null and contas.size() > 0}" class="table-responsive mt-3">
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Valor</th>
+                <th>Tipo</th>
+                <th>Nome</th>
+                <th>Descricao</th>
+                <th>Operacoes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="conta : ${contas}">
+                <td th:text="${#dates.format(conta.data, 'dd/MM/yyyy')}"></td>
+				<td th:text="${#numbers.formatCurrency(conta.valor)}"></td>
+                <td>
+                    <span th:if="${conta.tipo == 1}" class="badge bg-success">RECEBER</span>
+                    <span th:if="${conta.tipo == 2}" class="badge bg-danger">PAGAR</span>
+                </td>
+                <td th:text="${conta.nome}"></td>
+                <td th:text="${conta.descricao}"></td>
+                <td>
+                    <a th:href="@{/contas/admin/edicao-contas(id=${conta.id}, dataMin=${dataMin}, dataMax=${dataMax})}" 
+                    	class="btn btn-outline-primary btn-sm me-2">
+                    	Editar
+                    </a>
+					<a th:href="@{/contas/admin/exclusao-contas(id=${conta.id}, dataMin=${dataMin}, dataMax=${dataMax})}"
+					   onclick="return confirm('Deseja excluir a conta selecionada?');"
+					   class="btn btn-outline-danger btn-sm">
+					   Excluir
+					</a>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6" th:text="'Quantidade de registros: ' + ${contas.size()}"></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div th:if="${contas == null or contas.size() == 0}" class="mt-3">
+    Nenhum resultado foi encontrado para o filtro selecionado.
+</div>
+
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

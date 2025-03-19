@@ -25,31 +25,36 @@
 
 		<div class="row mb-2">
 			<div class="col">
-				<label>Nome da conta:</label> <input type="text" class="form-control" />
+				<label>Nome da conta:</label> 
+				<!-- dentro de um input eu devo usar o th com o value -->
+				<input class="form-control" th:value="${conta.nome}" />
 			</div>
 
 			<div class="col">
-				<label>Data da conta:</label> <input type="date" class="form-control" />
+				<label>Data da conta:</label> 
+				<input class="form-control" th:value="${#dates.format(conta.data, 'dd/MM/yyyy')}" />
 			</div>
 
 			<div class="col">
-				<label>Valor da conta:</label> <input type="text" class="form-control" />
+				<label>Valor da conta:</label> 
+				<input class="form-control" th:value="${#numbers.formatCurrency(conta.valor)}" />
 			</div>
 
-			<div class="col">
-				<label>Tipo da conta:</label> 
-				<select class="form-select">
-					<option value="">Selecione uma opcao</option>
-					<option value="1">Conta a receber</option>
-					<option value="2">Conta a pagar</option>
-				</select>
-			</div>
+<div class="col">
+    <label>Tipo da conta:</label>
+    <select class="form-select">
+        <option value="">Selecione uma opção</option>
+        <option value="1" th:selected="${conta.tipo == 1}">Conta a receber</option>
+        <option value="2" th:selected="${conta.tipo == 2}">Conta a pagar</option>
+    </select>
+</div>
 		</div>
 
 		<div class="row mb-2">
 			<div class="col">
 				<label>Descricao / observacoes da conta:</label>
-				<textarea class="form-control"></textarea>
+				<!-- campo textarea eu devo usar o th com um text -->
+				<textarea class="form-control" th:text="${conta.descricao}" ></textarea>
 			</div>
 		</div>
 
