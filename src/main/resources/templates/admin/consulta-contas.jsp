@@ -24,8 +24,6 @@
 	<h5 th:if="${mensagem != null}" 
 		th:text="${mensagem}" th:class="${mensagemTipo == 'erro' ? 'erro' : 'sucesso'}"></h5>
 		
-	<p th:text="${contas}">
-
 	<form id="formConsulta" action="consulta-contas-post" method="post" class="mt-2 mb-2">
 		<div class="row">
 			<div class="col-md-2">
@@ -47,9 +45,9 @@
         <thead>
             <tr>
                 <th>Data</th>
-                <th>Valor</th>
-                <th>Tipo</th>
                 <th>Nome</th>
+                <th>Valor</th>
+                <th>Tipo</th>                
                 <th>Descricao</th>
                 <th>Operacoes</th>
             </tr>
@@ -57,15 +55,16 @@
         <tbody>
             <tr th:each="conta : ${contas}">
                 <td th:text="${#dates.format(conta.data, 'dd/MM/yyyy')}"></td>
+                <td th:text="${conta.nome}"></td>
+                
 				<td th:text="${#numbers.formatCurrency(conta.valor)}"></td>
                 <td>
                     <span th:if="${conta.tipo == 1}" class="badge bg-success">RECEBER</span>
                     <span th:if="${conta.tipo == 2}" class="badge bg-danger">PAGAR</span>
                 </td>
-                <td th:text="${conta.nome}"></td>
                 <td th:text="${conta.descricao}"></td>
                 <td>
-                    <a th:href="@{/contas/admin/edicao-contas(id=${conta.id}, dataMin=${dataMin}, dataMax=${dataMax})}" 
+                    <a th:href="@{/contas/admin/edicao-contas(id=${conta.id})}" 
                     	class="btn btn-outline-primary btn-sm me-2">
                     	Editar
                     </a>
@@ -93,7 +92,7 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 	
-	<!-- JQuery -->	
+<!-- JQuery -->	
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	
 <!--  JQuery Validation -->

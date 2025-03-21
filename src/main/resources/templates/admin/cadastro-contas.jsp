@@ -19,6 +19,7 @@
 		<h4>Cadastro de Contas</h4>
 		<p>Preencha os campos para incluir uma conta a pagar ou receber.</p>
 	</div>
+	<p th:text="${contas}">
 
 	<!-- pego o atributo que criei no controlador-->
 	<h5 th:if="${mensagem != null}" 
@@ -27,13 +28,16 @@
 	<form id="formCadastro" action="cadastro-contas-post" method="post" class="mt-2 mb-2">
 		<div class="row mb-2">
 			<div class="col">
-				<label>Nome da conta:</label> <input type="text" id="nome" name="nome" class="form-control" />
+				<label>Nome da conta:</label> 
+				<input type="text" id="nome" name="nome" class="form-control" />
 			</div>
 			<div class="col">
-				<label>Data da conta:</label> <input type="date" id="data" name="data" class="form-control" />
+				<label>Data da conta:</label> 
+				<input type="date" id="data" name="data" class="form-control" />
 			</div>
 			<div class="col">
-				<label>Valor da conta:</label> <input type="text" id="valor" name="valor" class="form-control" />
+				<label>Valor da conta:</label> 
+				<input type="number" min="1.00" step="0.010" id="valor" name="valor" class="form-control" />
 			</div>
 
 			<div class="col">

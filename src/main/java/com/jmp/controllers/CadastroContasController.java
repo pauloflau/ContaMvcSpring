@@ -48,8 +48,7 @@ public class CadastroContasController {
 	            modelAndView.addObject("mensagem", "Usuario nao autenticado.");
 	            modelAndView.addObject("mensagemTipo", "erro");
 	            return modelAndView;
-	        }
-			
+	        }			
 			
 			Conta conta = new Conta();
 			// resgato todos os campos que a pagina manda pra mim
