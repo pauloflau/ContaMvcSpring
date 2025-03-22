@@ -17,13 +17,26 @@ textarea.error {  /*pinta um textarea*/
 }
 
 /* Estilo para a mensagem de erro */
-.erro {
-	color: red;
-	font-weight: bold;
+.erro  {
+	color: red !important;
+	font-weight: bold !important;
 }
 
 /* Estilo para a mensagem de sucesso */
 .sucesso {
-	color: blue;
-	font-weight: bold;
+	color: blue !important;
+	font-weight: bold !important;
+}
+
+.positivo {
+    color: #006400 !important;
+    font-weight: bold;
+    background-color: #90EE90 !important;
+}
+
+.negativo {
+    color: #ff0000 !important;
+    font-weight: bold;
+    background-color: #ef7771 !important;
+    
 }

@@ -14,4 +14,8 @@ public interface ContaRepository extends JpaRepository<Conta, Integer> {
 
     @Query("SELECT c FROM Conta c WHERE c.usuario.id = :idUsuario AND c.data BETWEEN :dataInicial AND :dataFinal ORDER BY c.data ASC")
     List<Conta> findContasByUsuarioIdAndDataRange(Integer idUsuario, Date dataInicial, Date dataFinal);
+    
+    @Query("SELECT c FROM Conta c WHERE c.usuario.id = :idUsuario AND MONTH(c.data) = :mes AND YEAR(c.data) = :ano")
+    List<Conta> findContasByUsuarioIdAndMesAno(Integer idUsuario, Integer mes, Integer ano);
+
 }
