@@ -60,6 +60,7 @@ ContasMVC/
 ## Contato
 
 Caso queira trocar ideias ou sugerir melhorias:  
+**Paulo Flau**
 [LinkedIn](https://www.linkedin.com/in/pauloflau/) 
 
 ## Referências
