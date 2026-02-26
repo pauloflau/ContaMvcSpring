@@ -61,7 +61,7 @@ ContasMVC/
 
 Caso queira trocar ideias ou sugerir melhorias:  
 **Paulo Flau**
-[LinkedIn](https://www.linkedin.com/in/pauloflau/) 
+- [LinkedIn](https://www.linkedin.com/in/pauloflau/) 
 
 ## Referências
 - [Documentação do Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/)
